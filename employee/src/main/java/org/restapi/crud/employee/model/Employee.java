@@ -22,7 +22,7 @@ public class Employee {
 			e.printStackTrace();
 		}
 
-		return co;
+		return con;
 	}
 
 	
@@ -163,7 +163,7 @@ public String UpdateEmployees(String docId,String docGender, String docDob,Strin
 	}
 	catch (Exception e)
 	{
-		output = "{\"status\":\"error\", \"data\":\"Error while updating the Doctor Details.\"}";
+		output = "{\"status\":\"error\", \"data\":\"Error while updating the Employee Details.\"}";
 		System.err.println(e.getMessage());
 	}
 	return output;
@@ -198,7 +198,7 @@ public String deleteEmployees(String docId) {
 	}		
 	catch (Exception e)
 	{
-			output = "{\"status\":\"error\", \"data\":\"Error while deleting a Doctor.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while deleting a Employee.\"}";
 			System.err.println(e.getMessage());
 	}
 	
