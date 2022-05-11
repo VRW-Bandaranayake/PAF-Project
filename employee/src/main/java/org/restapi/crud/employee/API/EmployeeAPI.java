@@ -35,6 +35,8 @@ public class EmployeeAPI extends HttpServlet {
 		
 		String output = docObject.insertEmployees(request.getParameter("docId"), 
 												request.getParameter("docName"),
+												request.getParameter("docEmail"),
+												request.getParameter("docContact"),
 												request.getParameter("docGender"),
 												request.getParameter("docDob"),
 												request.getParameter("docAge"),
@@ -47,6 +49,8 @@ public class EmployeeAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
 		String output = docObject.UpdateEmployees(paras.get("hidItemIDSave").toString(),
+												paras.get("docEmail").toString().replace("%", "@").replace("40", ""),
+												paras.get("docContact").toString(),
 												paras.get("docGender").toString(),
 												paras.get("docDob").toString(), 
 												paras.get("docAge").toString(), 

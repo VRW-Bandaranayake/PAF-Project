@@ -72,15 +72,19 @@ $(document)
 					$("#docId").val(
 							$(this).closest("tr").find('td:eq(0)').text());
 					$("#docName").val(
-							$(this).closest("tr").find('td:eq(1)').text());
-					$("#docGender").val(
+					        $(this).closest("tr").find('td:eq(1)').text());
+					$("#docEmail").val(
 							$(this).closest("tr").find('td:eq(2)').text());
-					$("#docDob").val(
+					$("#docContact").val(
 							$(this).closest("tr").find('td:eq(3)').text());
-					$("#docAge").val(
+					$("#docGender").val(
 							$(this).closest("tr").find('td:eq(4)').text());
-					$("#docSalary").val(
+					$("#docDob").val(
 							$(this).closest("tr").find('td:eq(5)').text());
+					$("#docAge").val(
+							$(this).closest("tr").find('td:eq(6)').text());
+					$("#docSalary").val(
+							$(this).closest("tr").find('td:eq(7)').text());
 
 				});
 
@@ -118,6 +122,10 @@ function onItemDeleteComplete(response, status) {
 	}
 }
 
+//regex for validations================================================================================================================================
+var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var phoneno = /^\d{10}$/;
+
 
 function validateItemForm() {
 
@@ -127,6 +135,16 @@ function validateItemForm() {
 	}
 	if ($("#docName").val().trim() == "") {
 		return "Insert Name.";
+	}
+	
+	if ($("#docEmail").val().trim() == "" || !re.test($("#docEmail").val())){
+	
+		return "Insert Valide Email";
+	}
+	
+	
+	if ($("#docContact").val().trim() == "" || !phoneno.test($("#docContact").val())) {
+		return "Insert Valied Contact Number.";
 	}
 	// GENDER
 	if ($("#docGender").val() == "0") {

@@ -42,6 +42,8 @@ public class Employee {
 					// Prepare the html table to be displayed
 					output = "<table class=\'table table-bordered\' border='1'><tr><th>ID</th>"
 							+ "<th>Name</th>"
+							+"<th>Email</th>"
+							+ "<th>Contact Number</th>"
 							+ "<th>Gender</th>"
 							+ "<th>Dob</th>"
 							+ "<th>Age</th>"
@@ -57,6 +59,8 @@ public class Employee {
 					{
 							String docId = rs.getString("docId");
 							String docName = rs.getString("docName");
+							String docEmail = rs.getString("docEmail");
+							String docContact = rs.getString("docContact");
 							String docGender = rs.getString("docGender");
 							String docDob = rs.getString("docDob");
 							String docAge = Integer.toString(rs.getInt("docAge"));
@@ -65,6 +69,8 @@ public class Employee {
 							// Add into the html table
 							output += "<tr><td><input id='hidItemIDUpdate'name='hidItemIDUpdate' type='hidden' value='" + docId + "'>" + docId + "</td>";
 							output += "<td>" + docName + "</td>";
+							output += "<td>" + docEmail + "</td>";
+							output += "<td>" + docContact + "</td>";
 							output += "<td>" + docGender + "</td>";
 							output += "<td>" + docDob + "</td>";
 							output += "<td>" + docAge+ "</td>";
@@ -87,7 +93,7 @@ public class Employee {
 	}
 	
 	
-public String insertEmployees(String docId, String docName, String docGender,String docDob, String docAge,String docSalary  ) {
+public String insertEmployees(String docId, String docName, String docEmail, String docContact, String docGender,String docDob, String docAge,String docSalary  ) {
 		
 		String output = "";
 		
@@ -101,18 +107,20 @@ public String insertEmployees(String docId, String docName, String docGender,Str
 				}
 
 			// create a prepared statement
-			String query = " insert into employee " + "(`docId`,`docName`,`docGender`,`docDob`,`docAge`,`docSalary`)"
-					+ " values (?,?,?,?,?,?)";
+			String query = " insert into employee " + "(`docId`,`docName`,`docEmail`,`docContact`,`docGender`,`docDob`,`docAge`,`docSalary`)"
+					+ " values (?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 
 			// binding values
 			preparedStmt.setString(1, docId);
 			preparedStmt.setString(2, docName);
-			preparedStmt.setString(3, docGender);
-			preparedStmt.setString(4, docDob);
-			preparedStmt.setInt(5,Integer.parseInt(docAge) );
-			preparedStmt.setString(6, docSalary);
+			preparedStmt.setString(3, docEmail);
+			preparedStmt.setString(4, docContact);
+			preparedStmt.setString(5, docGender);
+			preparedStmt.setString(6, docDob);
+			preparedStmt.setInt(7,Integer.parseInt(docAge) );
+			preparedStmt.setString(8, docSalary);
 
 			// execute the statement
 			preparedStmt.execute();
@@ -130,7 +138,7 @@ public String insertEmployees(String docId, String docName, String docGender,Str
 		return output;
 	}
 
-public String UpdateEmployees(String docId,String docGender, String docDob,String docAge,String docSalary ) {
+public String UpdateEmployees(String docId,String docEmail, String docContact,String docGender, String docDob,String docAge,String docSalary ) {
 	String output = "";
 	try {
 		Connection con = connect();
@@ -140,17 +148,19 @@ public String UpdateEmployees(String docId,String docGender, String docDob,Strin
 		}
 
 		// create a prepared statement
-		String query = "update employee set docGender = ?,docDob = ?,docAge = ?,docSalary = ? where docId = ?";
+		String query = "update employee set docEmail = ?,docContact = ?,docGender = ?,docDob = ?,docAge = ?,docSalary = ? where docId = ?";
 
 		PreparedStatement preparedStmt = con.prepareStatement(query);
 
 		// binding values
 
-		preparedStmt.setString(1, docGender);
-		preparedStmt.setString(2, docDob);
-		preparedStmt.setInt(3,Integer.parseInt(docAge) );
-		preparedStmt.setString(4, docSalary);
-		preparedStmt.setString(5, docId);
+		preparedStmt.setString(1, docEmail);
+		preparedStmt.setString(2, docContact);
+		preparedStmt.setString(3, docGender);
+		preparedStmt.setString(4, docDob);
+		preparedStmt.setInt(5,Integer.parseInt(docAge) );
+		preparedStmt.setString(6, docSalary);
+		preparedStmt.setString(7, docId);
 		
 
 		// execute the statement

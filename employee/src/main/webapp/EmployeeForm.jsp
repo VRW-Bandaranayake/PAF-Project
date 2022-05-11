@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>Employee Register Form</title>
-	<link rel="stylesheet" type="text/css" href="Register.css">
+	<link rel="stylesheet" type="text/css" href="Employee.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="Views/bootstrap.min.css">
 	<script src="Components/jquery-3.2.1.min.js"></script>
@@ -16,7 +16,7 @@
 
 
 <body>
-<img class="wave" src="img/images (22).jpg" style="width:100%;height:100%;opacity: 0.4;">
+<img class="wave" src="img/images (22).jpg" style="width:150%;height:150%;opacity: 0.5;">
 
 <section id="contact" style="position: absolute;top: 8%;left: 5%;right: 100%;trasform: translate(-90%,-90%);width: 1200px;height: 500;box-sizing: border-box;background: rgba(0,0,0,0.1);padding: px;"	>
             <div class="container"style="color:black;font-weight: bold;font-weight: 600;" >
@@ -38,7 +38,17 @@
                                 <div class="form-group" style="width: 510px; margin-left: 15px;">
                                      <label for="From"> Enter Name :</label>
                                      <input id="docName" style="width: 500px;margine-top: 20px;background: transparent;outline: none;padding: 20px;font-size: 13px;border-radius: 30px;box-shadow:0 0 10px #228B22;" name="docName"  type="text" class="form-control" placeholder="Username" required>
-                                </div>    
+                                </div>  
+                                
+                                <div class="form-group" style="width: 510px; margin-left: 15px;">
+                                      <label for="From">Enter Email :</label>
+                                     <input id="docEmail" style="width: 500px;margine-top: 20px;background: transparent;outline: none;padding: 20px;font-size: 13px;border-radius: 30px;box-shadow:0 0 10px #228B22;" name="docEmail" type="Email" class="form-control" placeholder="Email" required>
+                                </div> 
+                                
+                                <div class="form-group" style="width: 510px; margin-left: 15px;">
+                                      <label for="From">Enter Contact No :</label>
+                                     <input id="docContact" style="width: 500px;margine-top: 20px;background: transparent;outline: none;padding: 20px;font-size: 13px;border-radius: 30px;box-shadow:0 0 10px #228B22;" name="docContact" type="text" class="form-control" placeholder="Contact No" required>
+                                </div>  
                             
                                  <div class="form-group" style="width: 510px; margin-left: 15px;">
                                      <label for="From">Enter Gender :</label><br>
